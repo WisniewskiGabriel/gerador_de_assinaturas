@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de assinatura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light">
+
+    <div class="container">
+        <main>
+            <div class="py-12 text-center">
+            </br>
+            <img class="d-block mx-auto mb-4" src="/imgs/logo_sicredi.png" alt="" height="57">
+            <h2>Gere sua assinatura!</h2>
+            <p class="lead">Basta preencher os campos para gerar sua assinatura da maneira correta!</p>
+            </div>
+
+            <div class="row g-5">
+
+                <div class="col-md-12 col-lg-12">
+                    <h4 class="mb-3">Dados do colaborador</h4>
+                    <form id="form-data">
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <label for="colabName" class="form-label">Nome completo</label>
+                                <input type="text" id="colabName" class="form-control" placeholder="" value="" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="email" placeholder="seu_email@sicredi.com.br">
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="colabPosition" class="form-label">Cargo <span class="text-muted">seu cargo (não é necessário descrever o nível Jr, Pl, Sr)</span></label>
+                                <input type="text" class="form-control" id="colabPosition" placeholder="" value="" required>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="colabSector" class="form-label">Área que atua <span class="text-muted">não é necessário informar "Gerência de" no início da frase</span></label>
+                                <input type="text" class="form-control" id="colabSector" placeholder="" value="" required>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="colabCity" class="form-label">Cidade onde atua</label>
+                                <input type="text" class="form-control" id="colabCity" placeholder="" value="" required>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="hasCorporatePhone">
+                                    <label class="form-check-label" for="hasCorporatePhone">Possui telefone corporativo?</label>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <button id="generate_button" class="w-100 btn btn-primary btn-lg" type="submit">Gerar assinatura</button>
+            <hr class="my-4">
+            <p class="mb-1">Sicredi Vanguarda</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://ajuda.sicredi.io" target="_blank">Suporte CoopChat</a></li>
+                <li class="list-inline-item"><a href="https://www.sicredi.com.br/coop/vanguarda/" target="_blank">Website Sicredi</a></li>
+            </ul>
+        </footer>
+    </div>
+
+
+    <script src="scripts/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+
+</body>
+
+</html>

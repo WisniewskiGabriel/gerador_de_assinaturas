@@ -16,7 +16,7 @@ function isCheckboxChecked(){
 }
 
 function addCorporateInfoField(){
-    document.getElementById("form-data").insertAdjacentHTML("beforeend",'<div class="col-sm-12" id="field_corporate_phone"></br><label for="colabCorporatePhone" class="form-label">Telone corporativo<span class="text-muted"> CELULAR CORPORATIVO (quando existir) / VoIP</span></label><input type="text" class="form-control" id="colabCorporatePhone" placeholder="" value="" required></div>')
+    document.getElementById("form-data").insertAdjacentHTML("beforeend",'<div class="col-sm-12" id="field_corporate_phone"></br><label for="colabCorporatePhone" class="form-label">Telefone corporativo<span class="text-muted"> CELULAR CORPORATIVO (quando existir) / VoIP</span></label><input type="text" class="form-control" id="colabCorporatePhone" placeholder="" value="" required></div>')
 }
 
 function actionForHasCorporatePhoneTrue(){
@@ -29,11 +29,11 @@ function actionForHasCorporatePhoneFalse(){
     document.getElementById("hasCorporatePhone").checked = false;
 }
 
-function generateZip(str_htm) {
+function generateZip(str_htm,str_nome_colab) {
     const zip = new JSZip();
 
     // Add the HTML file
-    zip.file("txt1.htm", str_htm);
+    zip.file("assinatura_template_(mail_colab).htm", str_htm);
 
     // Fetch the PNG image file
     fetch('./assets/assinatura_template_(mail_colab)_arquivos/image001.png')
@@ -48,7 +48,8 @@ function generateZip(str_htm) {
                     // Create a download link
                     var link = document.createElement("a");
                     link.href = URL.createObjectURL(content);
-                    link.download = "myZipFile.zip";
+                    var currentDate = new Date();
+                    link.download = "Assinatura de "+str_nome_colab+" gerado em "+currentDate.getFullYear()+"-"+(Number(currentDate.getMonth())+1)+"-"+currentDate.getDate()+".zip";
                     console.log(link);
                     link.click();
                 });
@@ -111,6 +112,6 @@ async function adjustSignature() {
         telefone_colab = str_signature.replace(/.+_telefone_colab_.+\n/g,"");
     }
 
-    generateZip(str_signature)
+    generateZip(str_signature,objData.nome_colab)
 
 }

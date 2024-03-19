@@ -105,12 +105,7 @@ async function adjustSignature() {
     str_signature = str_signature.replace(/cargo_colab/g, objData.cargo_colab);
     str_signature = str_signature.replace(/gerencia_colab/g, objData.gerencia_colab);
     str_signature = str_signature.replace(/cidade_colab/g, objData.cidade_colab);
-    if(objData.has_corporate_phone){
-        str_signature = str_signature.replace(/_telefone_colab_/g, objData.telefone_colab);
-        console.log("has_phone")
-    } else {
-        telefone_colab = str_signature.replace(/.+_telefone_colab_.+\n/g,"");
-    }
+    str_signature = str_signature.replace(/_telefone_colab_/g, objData.telefone_colab);
 
     generateZip(str_signature,objData.nome_colab)
 
